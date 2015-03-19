@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'years/show'
+
   get 'months/new'
 
   get 'months/create'
