@@ -6,6 +6,7 @@ class MonthsController < ApplicationController
   def create
     month_to_create = params[:month][:id].to_i
     if month_to_create <= 12
+      SimulateTimeTracking.new(month_to_create).call
       redirect_to action: "show", id: month_to_create
     else
       redirect_to controller: "years", action: "show"
