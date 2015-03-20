@@ -1,5 +1,5 @@
 <%= form_for :month, url: months_path do |f| %>
-  <%= f.hidden_field :id, value: @month+1 %>
+  <%= f.hidden_field :id, value: month_number + 1 %>
   <%= f.submit "Simuleer!" %>
 <% end %>
 

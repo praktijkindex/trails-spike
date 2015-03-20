@@ -1,2 +1,6 @@
-<h1>Years#show</h1>
-<p>Find me in app/views/years/show.html.erb</p>
+<h1>2015 werkuren</h1>
+
+<%= tracked_hours_graph(type: "Line",
+                        events: Month.starts(from: 2),
+                        eventLineColors: ["#AAA"])
+%>

@@ -1,3 +1,6 @@
-<h1>Geregistreerde uren voor <%= @month %></h1>
+<h1>Geregistreerde uren voor <%= month %></h1>
 
+<%= button_to "Opnieuw", new_month_path, method: "get" %>
 <%= render "simulate_form" %>
+
+<%= tracked_hours_graph %>

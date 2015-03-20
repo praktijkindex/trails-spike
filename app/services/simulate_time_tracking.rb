@@ -15,7 +15,7 @@ class SimulateTimeTracking
 
   def simulate_artm
     last_friday_of_the_year do
-      (1..53).each do |work_week|
+      (0..51).each do |work_week|
         TrackTime.new(Employee.artm, work_week, 38).call
       end
     end
