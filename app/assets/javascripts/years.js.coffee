@@ -7,4 +7,9 @@
 $(".years [data-graph]").each ->
   graph = $(@).data("graph")
   graph.on "click", (index, record, x, y) ->
-    console.log graph.xToDate(x)
+    clickDate = graph.xToDate(x)
+    window.location.search = "?time_travel_to=#{ISODateString(clickDate)}"
+
+
+ISODateString = (date) ->
+  date.toISOString().replace(/T.*/,"")
