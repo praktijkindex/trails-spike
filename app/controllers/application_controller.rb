@@ -8,7 +8,11 @@ class ApplicationController < ActionController::Base
   private
 
   def tracked_hours
-    WeekWork.all
+    if params[:time_travel_to]
+      WeekWork.where("week_works.updated_at <= ?", params[:time_travel_to])
+    else
+      WeekWork.all
+    end
   end
 
   def employees
