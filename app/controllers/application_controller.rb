@@ -8,15 +8,13 @@ class ApplicationController < ActionController::Base
   private
 
   def tracked_hours
-    if time_travel_to
-      WeekWork.where("week_works.updated_at <= ?", time_travel_to)
-    else
-      WeekWork.all
-    end
+    all = WeekWork.all
+    all = all.map{|ww| ww.version_at(time_travel_to)}.compact if time_travel_to
+    all
   end
 
   def employees
-    names = (tracked_hours.joins(:employee).presence || Employee).pluck(:name)
+    names = tracked_hours.map{|ww| ww.employee.name}.presence || Employee.pluck(:name)
     names.uniq.sort_by(&:capitalize)
   end
 

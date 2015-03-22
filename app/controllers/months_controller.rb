@@ -1,6 +1,9 @@
 class MonthsController < ApplicationController
   def new
+    WeekWork.paper_trail_off!
     WeekWork.delete_all
+    PaperTrail::Version.delete_all
+    WeekWork.paper_trail_on!
   end
 
   def create
