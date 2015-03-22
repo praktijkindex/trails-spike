@@ -1,6 +1,10 @@
 <h1>2015 werkuren</h1>
 
+<%- if time_travel_to %>
+  <p>Geregistreerd op <%= time_travel_to %></p>
+<%- end %>
+
 <%= tracked_hours_graph(type: "Line",
-                        events: Month.starts(from: 2),
+                        events: Month.starts + ["2016-01"],
                         eventLineColors: ["#AAA"])
 %>
